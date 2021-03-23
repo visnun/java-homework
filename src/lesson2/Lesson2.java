@@ -119,7 +119,7 @@ public class Lesson2 {
         Число 345 не содержится в интервале (25;200)
         Число 110 содержится в интервале (25;200)
          */
-        int number = (int) (Math.random() * 490) + 10;
+        int number = (int) (Math.random() * 491) + 10;
         if (number > 25 && number < 200) {
             System.out.println("Число " + number + " содержится в интервале (25;200)");
         } else {
