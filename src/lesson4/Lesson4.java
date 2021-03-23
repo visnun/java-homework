@@ -11,7 +11,7 @@ public class Lesson4 {
         int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE, indexOfMin = 0, indexOfMax = 0, someVal;
 
         for (int i = 0; i < ints.length; i++) {
-            ints[i] = (int) (Math.random() * 497 + 3);
+            ints[i] = (int) (Math.random() * 498 + 3);
             if (min > ints[i]) {
                 min = ints[i];
                 indexOfMin = i;
