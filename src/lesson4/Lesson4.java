@@ -1,8 +1,8 @@
-package lesson3;
+package lesson4;
 
 import java.util.Arrays;
 
-public class Lesson3 {
+public class Lesson4 {
     public static void main(String[] args) {
         // 1. Создать одномерный массив типа int на 20 элементов. Заполнить его рандомными значениями от 3 до 500.
         // Поменять местами минимальный и максимальный элементы.
