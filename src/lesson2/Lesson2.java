@@ -66,9 +66,9 @@ public class Lesson2 {
         В конце вывести сколько тарелок осталось, когда моющее средство закончилось или
         наоборот.
          */
-        System.out.println("Введите кол-во тарелок");
+        System.out.println("Введите кол-во тарелок"); // TODO проверка на 0
         int platesQty = in.nextInt();
-        System.out.println("Введите кол-во моющего средства");
+        System.out.println("Введите кол-во моющего средства"); // TODO проверка на 0
         double cleaningAgentAmount = in.nextDouble();
         while (platesQty > 0 && cleaningAgentAmount > 0) {
             platesQty -= 1;
