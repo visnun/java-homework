@@ -9,7 +9,6 @@ public class Lesson4 {
         System.out.println("Задача №1");
         int[] ints = new int[20];
         int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE, indexOfMin = 0, indexOfMax = 0, someVal;
-
         for (int i = 0; i < ints.length; i++) {
             ints[i] = (int) (Math.random() * 498 + 3);
             if (min > ints[i]) {
@@ -24,7 +23,7 @@ public class Lesson4 {
         System.out.println("Получившийся массив: " + Arrays.toString(ints));
         System.out.println("Минимальный элемент: " + min + ", " + "индекс элемента: " + indexOfMin);
         System.out.println("Максимальный элемент: " + max + ", " + "индекс элемента: " + indexOfMax);
-        someVal = ints[indexOfMin];
+        someVal = ints[indexOfMin]; // TODO убрать ненужную переменную
         ints[indexOfMin] = ints[indexOfMax];
         ints[indexOfMax] = someVal;
         System.out.println("Итоговый массив: " + Arrays.toString(ints));
