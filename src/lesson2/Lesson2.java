@@ -54,7 +54,7 @@ public class Lesson2 {
             case 3 -> System.out.println(firstOperand + secondOperand);
             case 5 -> System.out.println(firstOperand - secondOperand);
             case 7 -> System.out.println(firstOperand * secondOperand);
-            case 9 -> System.out.println((double) firstOperand / (double) secondOperand);
+            case 9 -> System.out.println((double) firstOperand / secondOperand);
             default -> System.out.println("Значение оператора должно быть одним из: 3, 5, 7 или 9");
         }
 
