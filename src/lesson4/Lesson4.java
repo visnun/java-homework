@@ -38,7 +38,7 @@ public class Lesson4 {
         int[] ints2 = new int[8];
         int[] ints3 = new int[3];
         int ints2Index = 0, ints3Index = 0;
-        for (int i: ints1) {
+        for (int i : ints1) {
             if (i % 2 == 0) {
                 ints2[ints2Index] = i;
                 ints2Index++;
@@ -80,7 +80,7 @@ public class Lesson4 {
         System.out.println("");
         System.out.println("Задача №4");
         int[] ints6 = new int[10];
-        for (int i = 0, value = 2 ; i < ints6.length; i++, value += 2) {
+        for (int i = 0, value = 2; i < ints6.length; i++, value += 2) {
             ints6[i] = value;
         }
         System.out.println("Получившийся массив: " + Arrays.toString(ints6));
@@ -105,5 +105,4 @@ public class Lesson4 {
         if (nullCount > negOneCount && nullCount > oneCount) System.out.println("Чаще всего встречается: 0");
         if (oneCount > nullCount && oneCount > negOneCount) System.out.println("Чаще всего встречается: 1");
     }
-
 }

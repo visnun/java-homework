@@ -46,7 +46,7 @@ public class Lesson2 {
         Scanner in = new Scanner(System.in);
         System.out.println("Введите первый операнд:");
         int firstOperand = in.nextInt();
-        System.out.println("Введите второй операнд:");
+        System.out.println("Введите второй операнд:"); // TODO проверка на 0
         int secondOperand = in.nextInt();
         System.out.println("Введите оператор:");
         int operator = in.nextInt();
@@ -54,7 +54,7 @@ public class Lesson2 {
             case 3 -> System.out.println(firstOperand + secondOperand);
             case 5 -> System.out.println(firstOperand - secondOperand);
             case 7 -> System.out.println(firstOperand * secondOperand);
-            case 9 -> System.out.println(firstOperand / secondOperand);
+            case 9 -> System.out.println((double) firstOperand / (double) secondOperand);
             default -> System.out.println("Значение оператора должно быть одним из: 3, 5, 7 или 9");
         }
 
