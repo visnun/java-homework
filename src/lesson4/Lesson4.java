@@ -34,7 +34,7 @@ public class Lesson4 {
         System.out.println("");
         System.out.println("Задача №2");
         int[] ints1 = {78, 32, 76, 100, 0, 6301, 331, 77, 24, 2, 90};
-        int[] ints2 = new int[8];
+        int[] ints2 = new int[8]; // TODO посчитать кол-во в цикле. Использовать copyOf.
         int[] ints3 = new int[3];
         int ints2Index = 0, ints3Index = 0;
         for (int i : ints1) {
@@ -94,7 +94,9 @@ public class Lesson4 {
         int[] ints7 = new int[11];
         int negOneCount = 0, nullCount = 0, oneCount = 0;
         for (int i = 0; i < ints7.length; i++) {
-            ints7[i] = (int) Math.round((Math.random() * 2) - 1);
+            // ints7[i] = (int) Math.round(Math.random() * 2 - 1);
+            ints7[i] = (int) (Math.random() * 3) - 1;
+
             if (ints7[i] < 0) negOneCount++;
             if (ints7[i] == 0) nullCount++;
             if (ints7[i] > 0) oneCount++;
