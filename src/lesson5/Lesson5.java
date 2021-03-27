@@ -29,7 +29,8 @@ public class Lesson5 {
         System.out.println("Введите строку:");
         String[] arrOfStrings = in.nextLine().strip().split(" ");
         for (String item : arrOfStrings) {
-            sb.append(item);
+            sb.append(item);in = new Scanner(System.in);
+        sb = new StringBuilder();
         }
         firstString = sb.toString();
         secondString = sb.reverse().toString();
