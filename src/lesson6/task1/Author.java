@@ -15,7 +15,7 @@ public class Author {
 
     public void setName(String name) {
         if (name == null || name.length() < 3) throw new IllegalArgumentException("name < 3");
-        this.name = name;
+        this.name = name.trim();
     }
 
     public String getLastName() {
@@ -24,7 +24,7 @@ public class Author {
 
     public void setLastName(String lastName) {
         if (lastName == null || lastName.length() < 3) throw new IllegalArgumentException("lastName < 3");
-        this.lastName = lastName;
+        this.lastName = lastName.trim();
     }
 
     @Override
