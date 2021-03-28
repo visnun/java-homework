@@ -13,10 +13,12 @@ public class Application {
         Book book2 = new Book("Название2", 200, 1999, author1);
         System.out.println(book1);
         System.out.println(book2);
+        System.out.println(book1.getAuthors());
 
         Storage storage = new Storage();
-        storage.setBooks(book1);
-        storage.setBooks(book2);
+        storage.addBooks(book1);
+        storage.addBooks(book2);
+        storage.addBooks(book2);
         System.out.println(storage);
     }
 }

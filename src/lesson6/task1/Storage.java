@@ -12,11 +12,11 @@ public class Storage {
         setUuid();
     }
 
-    public String getBooks() {
-        return Arrays.toString(books);
+    public Book[] getBooks() {
+        return books;
     }
 
-    public void setBooks(Book book) {
+    public void addBooks(Book book) {
         Objects.requireNonNull(book, "book не може быть null");
         for (int i = 0; i < books.length; i++) {
             if (books[i] == null) {

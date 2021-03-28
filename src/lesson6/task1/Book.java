@@ -25,8 +25,8 @@ public class Book {
         this.name = name;
     }
 
-    public String getAuthors() {
-        return Arrays.toString(authors);
+    public Author[] getAuthors() {
+        return authors;
     }
 
     public void setAuthors (Author[] authors) {
