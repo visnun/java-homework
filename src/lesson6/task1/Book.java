@@ -30,7 +30,7 @@ public class Book {
     }
 
     public void setAuthors (Author[] authors) {
-        Objects.requireNonNull(authors, "authors не может быть null");
+        Objects.requireNonNull(authors, "authors не может быть null"); // TODO проверить на пустой массив
         this.authors = Arrays.copyOf(authors, authors.length);
     }
 

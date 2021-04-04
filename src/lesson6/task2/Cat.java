@@ -80,13 +80,13 @@ public class Cat {
                 if (cat.getMice()[i] == null) break;
                 catChMouse(cat.getMice()[i]);
             }
-            cat.mousesToNull();
+            cat.miceToNull();
             return;
         }
         System.out.println("Этот кот больше. Его нельзя атаковать");
     }
 
-    public void mousesToNull() {
+    public void miceToNull() {
         this.mice = new Mouse[40];
     }
 

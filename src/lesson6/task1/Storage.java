@@ -27,7 +27,6 @@ public class Storage {
                 System.out.println("Такая книга уже есть в хранилище");
                 return;
             }
-
         }
         System.out.println("В хранилище нет мест");
     }

@@ -10,10 +10,11 @@ public class Application {
         System.out.println(author3);
 
         Book book1 = new Book("Название1", 150, 1956, author1, author2, author3);
-        Book book2 = new Book("Название2", 200, 1999, author1);
+        Book book2 = new Book("Название2", 200, 1999);
+//        Book book3 = new Book("Название")ж
         System.out.println(book1);
         System.out.println(book2);
-        System.out.println(book1.getAuthors());
+//        System.out.println(book1.getAuthors());
 
         Storage storage = new Storage();
         storage.addBooks(book1);
