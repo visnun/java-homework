@@ -14,11 +14,11 @@ public class Application {
         Mouse mouse1 = new Mouse(5);
         Cat cat1 = new Cat("cat1", "black", 6, 8.5);
         cat1.setSpeed(6);
-        cat1.catChMouse(mouse1);
+        cat1.catchMouse(mouse1);
 //        System.out.println(cat1);
         Cat cat2 = new Cat("cat2", "white", 6, 7);
 //        System.out.println(cat2);
-        cat2.catChMouse(mouse1);
+        cat2.catchMouse(mouse1);
         cat1.attackOtherCat(cat2);
         System.out.println(cat1);
         System.out.println(cat2);

@@ -58,7 +58,7 @@ public class Cat {
         return mice;
     }
 
-    public void catChMouse(Mouse mouse) {
+    public void catchMouse(Mouse mouse) {
         Objects.requireNonNull(mouse, "mouse не может быть null");
         if (this.getSpeed() > mouse.getSpeed()) {
             for (int i = 0; i < mice.length; i++) {
@@ -78,7 +78,7 @@ public class Cat {
         if (this.weight > cat.getWeight()) {
             for (int i = 0; i < cat.getMice().length; i++) {
                 if (cat.getMice()[i] == null) break;
-                catChMouse(cat.getMice()[i]);
+                catchMouse(cat.getMice()[i]);
             }
             cat.miceToNull();
             return;
