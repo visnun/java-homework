@@ -1,7 +1,5 @@
 package lesson5;
 
-import java.util.Arrays;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Lesson5 {
@@ -41,18 +39,27 @@ public class Lesson5 {
 
         //4. Заменить все буквы в слове на строчные, а первую букву на заглавную
         //Например, дано hello, получаем Hello / дано HeLLO, получаем Hello
+        System.out.println("");
+        System.out.println("Задача № 4");
+        System.out.println("Введите слово");
+        word = in.nextLine().trim().toLowerCase();
+        String[] arrOfChars = word.split("");
+        arrOfChars[0] = arrOfChars[0].toUpperCase();
+        word = String.join("", arrOfChars);
+        System.out.println(word);
+
         //5. Вводится с клавиатуры массив слов. Определить, сколько слов начинается на определенную букву.
         System.out.println("");
         System.out.println("Зачада № 5");
         in = new Scanner(System.in);
         System.out.println("Введите массив строк");
-        String[] arrOfWords = in.nextLine().split(" ");
+        String[] arrOfWords = in.nextLine().trim().split(" ");
         System.out.println("Введите букву для проверки");
         String letter = in.nextLine();
         int counter = 0;
-        for (int i = 0; i < arrOfWords.length; i++) {
-            System.out.println(arrOfWords[i]);
-            if (arrOfWords[i].toLowerCase(Locale.ROOT).startsWith(letter)) counter++;
+        for (String arrOfWord : arrOfWords) {
+            System.out.println(arrOfWord);
+            if (arrOfWord.toLowerCase().startsWith(letter)) counter++;
         }
         System.out.println(counter + " слов начинается на " + letter);
     }
