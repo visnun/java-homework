@@ -1,6 +1,7 @@
 package lesson5;
 
 import java.util.Arrays;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Lesson5 {
@@ -30,15 +31,29 @@ public class Lesson5 {
         String[] arrOfStrings = in.nextLine().strip().split(" ");
         for (String item : arrOfStrings) {
             sb.append(item);in = new Scanner(System.in);
-        sb = new StringBuilder();
         }
         firstString = sb.toString();
+        System.out.println(firstString);
         secondString = sb.reverse().toString();
+        System.out.println(secondString);
         System.out.println(firstString.equalsIgnoreCase(secondString) ? "Палиндром" : "Не палиндром");
 
 
         //4. Заменить все буквы в слове на строчные, а первую букву на заглавную
         //Например, дано hello, получаем Hello / дано HeLLO, получаем Hello
         //5. Вводится с клавиатуры массив слов. Определить, сколько слов начинается на определенную букву.
+        System.out.println("");
+        System.out.println("Зачада № 5");
+        in = new Scanner(System.in);
+        System.out.println("Введите массив строк");
+        String[] arrOfWords = in.nextLine().split(" ");
+        System.out.println("Введите букву для проверки");
+        String letter = in.nextLine();
+        int counter = 0;
+        for (int i = 0; i < arrOfWords.length; i++) {
+            System.out.println(arrOfWords[i]);
+            if (arrOfWords[i].toLowerCase(Locale.ROOT).startsWith(letter)) counter++;
+        }
+        System.out.println(counter + " слов начинается на " + letter);
     }
 }
