@@ -5,10 +5,10 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
-    private int port;
+    private final int port;
     private Connection connection;
     private int connectionCount;
-    private String commandList = "/help\n /count\n /ping\n /exit\n";
+    private final String commandList = "Список доступных команд\n/help\n/count\n/ping\n/exit\n";
 
     public Server(int port) {
         this.port = port;
@@ -20,15 +20,12 @@ public class Server {
 
             while (true) {
                 Socket newClient = serverSocket.accept();
+
                 connection = new Connection(newClient);
                 connectionCount++;
+
                 SimpleMessage message = connection.readMessage();
-                if ("/count".equalsIgnoreCase(message.getText())) {
-                    connection.sendMessage(SimpleMessage.getMessage("Сервер", "Количество клиентов, которые подключались к серверу " + connectionCount));
-                }
-                if ("/ping".equalsIgnoreCase(message.getText())) {
-                    connection.sendMessage(SimpleMessage.getMessage("Сервер", "time: 6.10 ms"));
-                }
+                commandHandler(message.getText());
             }
         } catch (IOException e) {
             System.out.println("Ошибка сервера");
@@ -36,4 +33,22 @@ public class Server {
             System.out.println("Ошибка чтения сообщения");
         }
     }
+
+    private void commandHandler(String command) throws IOException {
+        if ("/exit".equalsIgnoreCase(command)) {
+            connection.sendMessage(SimpleMessage.getMessage("Сервер", "Выход"));
+        }
+        if ("/count".equalsIgnoreCase(command)) {
+            connection.sendMessage(SimpleMessage.getMessage("Сервер", "Количество клиентов, которые подключались к серверу " + connectionCount));
+        }
+        if ("/ping".equalsIgnoreCase(command)) {
+            connection.sendMessage(SimpleMessage.getMessage("Сервер", "time: 6.10 ms"));
+        }
+        if ("/help".equalsIgnoreCase(command)) {
+            connection.sendMessage(SimpleMessage.getMessage("Сервер", commandList));
+        } else {
+            connection.sendMessage(SimpleMessage.getMessage("Сервер", "Команда не найдена"));
+        }
+    }
+
 }
