@@ -10,10 +10,8 @@ public class Connection implements AutoCloseable{
     private ObjectInputStream input;
     private ObjectOutputStream output;
 
-    public Connection(Socket socket) throws IOException {
-        this.socket = socket;
-        // getOutputStream() - получаем стрим от сокета
-        // здесь важна последовательность. Сначала outputStream, потом inputStream
+    public Connection(Socket socket) throws IOException {        this.socket = socket;
+
         output = new ObjectOutputStream(socket.getOutputStream());
         input = new ObjectInputStream(socket.getInputStream());
     }
@@ -21,7 +19,6 @@ public class Connection implements AutoCloseable{
     public void sendMessage(SimpleMessage message) throws IOException {
         message.setDateTime();
         output.writeObject(message);
-        // flush() - передаем преобразованные байты в outputStream
         output.flush();
     }
 
@@ -29,7 +26,6 @@ public class Connection implements AutoCloseable{
         return (SimpleMessage) input.readObject();
     }
 
-    // Т.к. реализовали AutoCloseable нужно переопределить метод close() в котором нужно закрыть все ресурсы.
     @Override
     public void close() throws Exception {
         input.close();
