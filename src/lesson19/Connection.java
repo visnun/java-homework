@@ -12,7 +12,6 @@ public class Connection implements AutoCloseable{
 
     public Connection(Socket socket) throws IOException {
         this.socket = socket;
-
         output = new ObjectOutputStream(socket.getOutputStream());
         input = new ObjectInputStream(socket.getInputStream());
     }
@@ -28,8 +27,8 @@ public class Connection implements AutoCloseable{
     }
 
     public void sendImage(File file) throws IOException {
-        BufferedImage bufferedImage = ImageIO.read(file);
         OutputStream stream = socket.getOutputStream();
+        BufferedImage bufferedImage = ImageIO.read(file);
         ImageIO.write(bufferedImage, "jpg", stream);
         stream.flush();
     }
