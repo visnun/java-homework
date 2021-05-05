@@ -47,7 +47,6 @@ public class Client {
 
     public void sendImage(String path) {
         System.out.println("Отправляю изображение");
-
         try (Connection connection = new Connection(new Socket(ip, port))) {
             connection.sendImage(new File(path));
         } catch (IOException e) {
