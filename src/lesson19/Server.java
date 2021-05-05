@@ -37,7 +37,7 @@ public class Server {
 
 
 
-    public void receiveImage() {
+    public void getImage() {
         try (ServerSocket serverSocket = new ServerSocket(port)) {
             System.out.println("Принимаю изображение");
             while (true) {
