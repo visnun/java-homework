@@ -1,5 +1,8 @@
 package lesson19;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -20,10 +23,8 @@ public class Server {
 
             while (true) {
                 Socket newClient = serverSocket.accept();
-
                 connection = new Connection(newClient);
                 connectionCount++;
-
                 SimpleMessage message = connection.readMessage();
                 commandHandler(message.getText());
             }
@@ -31,6 +32,22 @@ public class Server {
             System.out.println("Ошибка сервера");
         } catch (ClassNotFoundException e) {
             System.out.println("Ошибка чтения сообщения");
+        }
+    }
+
+
+
+    public void receiveImage() {
+        try (ServerSocket serverSocket = new ServerSocket(port)) {
+            System.out.println("Принимаю изображение");
+            while (true) {
+                Socket newClient = serverSocket.accept();
+                connection = new Connection(newClient);
+                BufferedImage bufferedImage = connection.getImage();
+                ImageIO.write(bufferedImage, "jpg", new File("newFile.jpg"));
+            }
+        } catch (IOException e) {
+            System.out.println("Ошибка");
         }
     }
 

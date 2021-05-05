@@ -1,5 +1,10 @@
 package lesson19;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
@@ -29,7 +34,6 @@ public class Client {
     private void sendCommandAndPrintAnswer(SimpleMessage message) {
         try (Connection connection = new Connection(new Socket(ip, port))) {
             connection.sendMessage(message);
-
             SimpleMessage fromServer = connection.readMessage();
             System.out.println(fromServer.getText());
         } catch (IOException e) {
@@ -40,4 +44,22 @@ public class Client {
             e.printStackTrace();
         }
     }
+
+    public void sendImage(String path) {
+        System.out.println("Отправляю изображение");
+
+        try (Connection connection = new Connection(new Socket(ip, port))) {
+            connection.sendImage(new File(path));
+        } catch (IOException e) {
+            System.out.println("Соединение потеряно");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Ошибка чтения сообщения");
+        } catch (Exception e) {
+            System.out.println("Ошибка соединения");
+        }
+    }
+
+
+
+
 }

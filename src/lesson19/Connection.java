@@ -1,8 +1,8 @@
 package lesson19;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
 import java.net.Socket;
 
 public class Connection implements AutoCloseable{
@@ -10,7 +10,8 @@ public class Connection implements AutoCloseable{
     private ObjectInputStream input;
     private ObjectOutputStream output;
 
-    public Connection(Socket socket) throws IOException {        this.socket = socket;
+    public Connection(Socket socket) throws IOException {
+        this.socket = socket;
 
         output = new ObjectOutputStream(socket.getOutputStream());
         input = new ObjectInputStream(socket.getInputStream());
@@ -24,6 +25,18 @@ public class Connection implements AutoCloseable{
 
     public SimpleMessage readMessage() throws IOException, ClassNotFoundException {
         return (SimpleMessage) input.readObject();
+    }
+
+    public void sendImage(File file) throws IOException {
+        BufferedImage bufferedImage = ImageIO.read(file);
+        OutputStream stream = socket.getOutputStream();
+        ImageIO.write(bufferedImage, "jpg", stream);
+        stream.flush();
+    }
+
+    public BufferedImage getImage() throws IOException {
+        InputStream inputStream = socket.getInputStream();
+        return ImageIO.read(inputStream);
     }
 
     @Override

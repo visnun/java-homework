@@ -2,6 +2,6 @@ package lesson19;
 
 public class ClientApp {
     public static void main(String[] args) {
-        new Client("localhost", 8999).start();
+        new Client("localhost", 8999).sendImage("img.jpg");
     }
 }
